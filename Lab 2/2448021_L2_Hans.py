@@ -22,6 +22,9 @@ str2 = "chat"
 distance = levenshtein_distance(str1.lower(), str2.lower())
 print(f"The edit distance between '{str1}' and '{str2}' is {distance}")
 
+user_inp1 = input("Enter String 1: ")
+user_inp2 = input("Enter String 2: ")
+print(f"\nThe edit distance between '{user_inp1}' and '{user_inp2}' is {levenshtein_distance(user_inp1, user_inp2)}\n")
 
 def alignment(seq1, seq2):
     len1, len2 = len(seq1), len(seq2)
@@ -31,7 +34,6 @@ def alignment(seq1, seq2):
     for j in range(1, len2+1):        
         mat[0][j] = mat[0][j-1]-2
 
-    print(mat)
     for i in range(1, len1+1):
         for j in range(1, (len2+1)):
             top_value = mat[i-1][j]-2
@@ -42,7 +44,6 @@ def alignment(seq1, seq2):
             else:
                 diag_value -= 1
             mat[i][j] = max(top_value, left_value, diag_value)
-        print(mat, "\n")
     res1 = ""
     res2 = ""
     match=1
@@ -86,3 +87,6 @@ seq2 = "TAGCTATCACGACCGCGGTCGATTTGCCCGAC"
 
 result1, result2 = alignment(seq1, seq2)
 print(f"The Sequence alignment for {seq1} and {seq2} are:\n {result1}, {result2}")
+user_inp3 = input("Enter String 1: ")
+user_inp4 = input("Enter String 2: ")
+print(f"\nThe edit distance between '{user_inp3}' and '{user_inp4}' is {alignment(user_inp3, user_inp4)}\n")
