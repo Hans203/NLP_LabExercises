@@ -1,4 +1,8 @@
+#Importing necessary Libraries
 import numpy as np
+
+#Question 2
+#Calculating the levenshtein Distance
 def levenshtein_distance(str1, str2):
     len1, len2 = len(str1),len(str2)
     mat = np.zeros((len1+1,len2+1), dtype = int)
@@ -22,10 +26,14 @@ str2 = "chat"
 distance = levenshtein_distance(str1.lower(), str2.lower())
 print(f"The edit distance between '{str1}' and '{str2}' is {distance}")
 
+#Taking User Input 
 user_inp1 = input("Enter String 1: ")
 user_inp2 = input("Enter String 2: ")
 print(f"\nThe edit distance between '{user_inp1}' and '{user_inp2}' is {levenshtein_distance(user_inp1, user_inp2)}\n")
 
+
+#Question 3
+#Function for alignment
 def alignment(seq1, seq2):
     len1, len2 = len(seq1), len(seq2)
     mat = np.zeros((len1+1, len2+1), dtype=int)
